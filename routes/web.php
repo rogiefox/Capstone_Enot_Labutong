@@ -53,3 +53,7 @@ Route::get('/Flower/UserRose', function () {
 Route::get('/UserContact', function () {
     return view('/UserContact');
 });
+
+Route::get('/UserAbout', function () {
+    return view('/UserAbout');
+});
