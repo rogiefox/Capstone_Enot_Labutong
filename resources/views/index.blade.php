@@ -70,17 +70,19 @@
         <h1 class="text-center">Featured Products</h1>
         <div class="row g-4">
            <div class="col-md-4">
-                <div class="card border-0 rounded shadow">
-                    <img src="flower-img/Azure Blossoms.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="text-center">Azure Blossom</h5>
-                        <h5 class="text-center">&#8369; 3,500</h5>
+                <a href="/UserSingle" style="text-decoration: none;">
+                    <div class="card border-0 rounded shadow">
+                        <img src="flower-img/Azure Blossoms.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="text-center">Azure Blossom</h5>
+                            <h5 class="text-center">&#8369; 3,500</h5>
+                        </div>
+                        <div class="layer">
+                            <h6>A dozen of imported roses bouquet.</h6>
+                            <input type="submit" value="ADD TO CART" class="btn btn-outline-warning">
+                        </div>
                     </div>
-                    <div class="layer">
-                        <h6>A dozen of imported roses bouquet.</h6>
-                        <input type="submit" value="ADD TO CART" class="btn btn-outline-warning">
-                    </div>
-                </div>
+                </a>    
            </div>
            <div class="col-md-4">
                 <div class="card border-0 rounded shadow">

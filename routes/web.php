@@ -57,3 +57,7 @@ Route::get('/UserContact', function () {
 Route::get('/UserAbout', function () {
     return view('/UserAbout');
 });
+
+Route::get('/UserSingle', function () {
+    return view('/UserSingle');
+});

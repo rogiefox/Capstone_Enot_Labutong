@@ -42,7 +42,7 @@
                     <div class="d-flex mt-5 header-info">
                         <div>
                             <h3><i class="fa-solid fa-location-dot"></i> Address</h3>
-                            <p class="text-break">646 gomez st. <br>Brgy. Cogon West <br> Carmen Cebu</p>
+                            <p class="text-break">646 Gomez St. <br>Brgy. Cogon West <br> Carmen Cebu</p>
                         </div>
                         <div class="ms-5 ps-5 header-info">
                             <h3><i class="fa-regular fa-clock"></i> Opening Hours</h3>

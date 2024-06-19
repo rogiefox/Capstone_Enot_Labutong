@@ -164,3 +164,9 @@ footer{
 .mission-vision{
     font-family: "Montserrat", sans-serif;
 }
+
+/* Single Page */
+.single-care p{
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+}
