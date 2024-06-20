@@ -51,7 +51,12 @@
               <button class="border-0 bg-transparent">  
                 <a href="cartpage.php" class="text-dark fw-bolder" style="font-size: 20PX;"><i class="fa-solid fa-cart-shopping"></i></a>
               </button>
-                <a href="logout.php" class="text-dark" style="text-decoration: none;">Logout</a>
+              @if (Session::get('UserID'))
+              <a href="/userlogout" class="text-dark" style="text-decoration: none;">Logout</a>
+              @else
+                <a href="/signup" class="text-dark" style="text-decoration: none;">Sign Up</a>
+                <a href="/login" class="text-dark" style="text-decoration: none;">Log in</a>
+              @endif
             </div>    
         </div>
     </div>

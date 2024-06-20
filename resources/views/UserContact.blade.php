@@ -62,13 +62,17 @@
                 </div>
                 <div class="col-md-6 header-contact">
                     <h3>Get on Touch</h3>
-                    <div class="d-flex flex-column row-gap-4 mt-4 mb-3">
-                        <input type="text" placeholder="First Name and Last Name" class="form-control shadow" style="height: 50px;">
-                        <input type="text" placeholder="Email Address" class="form-control shadow" style="height: 50px;">
-                        <input type="text" placeholder="Mobile Phone Number" class="form-control shadow" style="height: 50px;">
-                        <textarea placeholder="Input Your Message" class="form-control shadow" style="height: 85px;"></textarea>
-                        <input type="button" class="btn btn-outline-warning text-dark" value="submit" style="width: 100px;">
-                    </div>    
+                    <form action="/usercontact" method="POST">
+                    @csrf
+                        <div class="d-flex flex-column row-gap-4 mt-4 mb-3">
+                            <input type="hidden" name="ContactUserID" value="{{Session::get('UserID')}}"  class="form-control shadow" style="height: 50px;">
+                            <input type="text" name="FullName" value="{{Session::get('FullName')}}"  class="form-control shadow" style="height: 50px;">
+                            <input type="text" name="Email" value="{{Session::get('Email')}}" class="form-control shadow" style="height: 50px;">
+                            <input type="text" name="PhoneNumber" value="{{Session::get('PhoneNumber')}}" class="form-control shadow" style="height: 50px;">
+                            <textarea placeholder="Input Your Message" name="ContactMessage" class="form-control shadow" style="height: 85px;"></textarea>
+                            <input type="submit" class="btn btn-outline-warning text-dark" value="Send" style="width: 100px;">
+                        </div>   
+                    </form> 
                 </div>
             </div>
         </div>

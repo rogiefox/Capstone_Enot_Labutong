@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id('OrderID');
-            $table->integer('UserID');
-            $table->integer('ProductID');
-            $table->string('Notes');
+        Schema::create('user_tables', function (Blueprint $table) {
+            $table->id('UserID');
+            $table->string('UserImage')->nullable();
+            $table->string('Email');
+            $table->string('Password');
+            $table->string('FullName');
+            $table->string('PhoneNumber');
             $table->string('Address');
-            $table->string('PaymentMethod');
-            $table->integer('TotalAmount');
-            $table->string('OrderStatus');
+            $table->integer('UserLevel')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('user_tables');
     }
 };
