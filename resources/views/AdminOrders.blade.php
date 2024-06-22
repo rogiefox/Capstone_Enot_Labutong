@@ -22,35 +22,35 @@
                             <form action="/orders" method="POST">
                             @csrf
                                 <label for="">OrderUserID</label>
-                                <select name="OrderUserID" class="form-control">
+                                <select name="OrderUserID" class="form-control fw-bold">
                                     @foreach ($UserTable as $ut)
                                         <option value="{{$ut->UserID}}">{{$ut->FullName}}</option>
                                     @endforeach
                                 </select>
                                 <label for="">OrderProductID</label>
-                                <select name="OrderProductID" class="form-control">
+                                <select name="OrderProductID" class="form-control fw-bold">
                                     @foreach ($ProductTable as $pt)
                                         <option value="{{$pt->ProductID}}">{{$pt->ProductName}}</option>
                                     @endforeach
                                 </select>
                                 <label for="">Notes</label>
-                                <textarea name="Notes" col="30" class="form-control"></textarea>
+                                <textarea name="Notes" col="30" class="form-control fw-bold"></textarea>
                                 <label for="">Address</label>
-                                <input type="Address" name="Address" name="Address" class="form-control">
+                                <input type="Address" name="Address" name="Address" class="form-control fw-bold">
                                 <label for="">PaymentMethod</label>
-                                <select name="PaymentMethod" class="form-control">
+                                <select name="PaymentMethod" class="form-control fw-bold">
                                     <option value="CashOnDelivery">CashOnDelivery(Only Availabel For Now)</option>
                                 </select>
                                 <label for="">TotalAmount</label>
-                                <input type="text" name="TotalAmount" class="form-control">
+                                <input type="text" name="TotalAmount" class="form-control fw-bold">
                                 <label for="">OrderStatus</label>
-                                <select name="OrderStatus" class="form-control">
+                                <select name="OrderStatus" class="form-control fw-bold">
                                     <option value="Pending">Pending</option>
                                     <option value="Ship">Ship</option>
                                     <option value="Completed">Completed</option>
                                 </select>
                                 <hr>
-                                <input type="submit" class="btn btn-dark">
+                                <input type="submit" class="btn btn-outline-warning text-dark">
                             </form>
                         </div>
                     </div>
@@ -123,20 +123,20 @@
                                             </td>
                                             <td>
                                                <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$ot->OrderID}}">
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$ot->OrderID}}">
                                                 View
                                             </button>
                                      
                                             </td>
                                             <td>
-                                                <input type="submit" class="btn btn-warning" value="Update">
+                                                <input type="submit" class="btn btn-outline-warning" value="Update">
                                             </td>
                                         </form>
                                             <td>
                                                 <form action="/orders/{{$ot->OrderID}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                                    <input type="submit" class="btn btn-outline-danger" value="Delete">
                                                 </form>
                                             </td>
                                         </tr>
@@ -145,32 +145,31 @@
                      
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModal{{$ot->OrderID}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">OrderDetail</h1>
+                                            <h1 class="modal-title" id="exampleModalLabel">OrderDetail</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="card">
-                                                    <div class="card-body">
-                                                        <img src="/image/{{$ot->ProductImage}}" class="img-fluid">
-                                                        <h4>Product: {{$ot->ProductName}}</h4>
-                                                        <h4>User: {{$ot->FullName}}</h4>
-                                                        <h4>Phone: {{$ot->PhoneNumber}}</h4>
-                                                        <h4>Email: {{$ot->Email}}</h4>
-                                                        <h4>Notes: {{$ot->Notes}}</h4>
-                                                        <h4>Shipping Address: {{$ot->Address}}</h4>
-                                                        <h4>PaymentMethod: {{$ot->PaymentMethod}}</h4>
-                                                        <h4>TotalAmount: {{$ot->TotalAmount}}</h4>
-                                                        <h4>OrderStatus: {{$ot->OrderStatus}}</h4>
-                                                        
+                                                    <div class="card-body shadow">
+                                                        <img src="/image/{{$ot->ProductImage}}" class="m-0 mx-auto d-block">
+                                                        <hr>
+                                                        <h4 class="form-control"><i>Product:</i><br> <span class="fw-bold">{{$ot->ProductName}}</span></h4>
+                                                        <h4 class="form-control"><i>User:</i><br> <span class="fw-bold">{{$ot->FullName}}</span></h4>
+                                                        <h4 class="form-control"><i>Phone:</i><br> <span class="fw-bold">{{$ot->PhoneNumber}}</span></h4>
+                                                        <h4 class="form-control"><i>Email:</i><br> <span class="fw-bold">{{$ot->Email}}</span></h4>
+                                                        <h4 class="form-control"><i>Notes:</i><br> <span class="fw-bold">{{$ot->Notes}}</span></h4>
+                                                        <h4 class="form-control"><i>Shipping Address:</i><br> <span class="fw-bold">{{$ot->Address}}</span></h4>
+                                                        <h4 class="form-control"><i>PaymentMethod:</i><br> <span class="fw-bold">{{$ot->PaymentMethod}}</span></h4>
+                                                        <h4 class="form-control"><i>TotalAmount:</i><br> <span class="fw-bold">{{$ot->TotalAmount}}</span></h4>
+                                                        <h4 class="form-control"><i>OrderStatus:</i><br> <span class="fw-bold">{{$ot->OrderStatus}}</span></h4>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <div class="modal-footer mx-auto border-0">
+                                                <button type="button" class="btn btn-outline-warning text-dark" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                         </div>

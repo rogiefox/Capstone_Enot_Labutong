@@ -170,3 +170,41 @@ footer{
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
 }
+
+/* Log in Page */
+.side-img img{
+    filter: brightness(0.8);
+}
+
+form h4{
+    font-family: "Great Vibes", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 40px;
+    background: -webkit-linear-gradient(#FF9472, #F2709C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0px;
+}
+
+.log-in .card{
+    height: 500px;
+}
+
+/* Sign Up Page */
+.sign-up .card{
+    height: 500px;
+}
+
+form h2{
+    font-family: "Great Vibes", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 40px;
+    background: -webkit-linear-gradient(#FF9472, #F2709C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0px;
+}
+
+

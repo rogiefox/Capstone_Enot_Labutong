@@ -4,23 +4,32 @@ body {
     font-family: Arial, sans-serif;
 }
 .sidebar {
-    background-color: #1c1c1c;
+    background-color: #F7F4EF;;
     min-height: 100vh;
     padding-top: 20px;
+    font-family: "Poppins", sans-serif;
 }
 .nav-link {
-    color: #b0b0b0;
+    color: #000000;
     padding: 10px 15px;
     text-decoration: none;
     display: block;
 }
+
 .nav-link:hover {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: #F2709C;
+    
 }
 .nav-link.active {
-    background-color: #333333;
-    color: #ffffff;
+    font-family: "Great Vibes", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 30px;
+    background: -webkit-linear-gradient(#FF9472, #F2709C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0px;
+    margin-right: 25px;
 }
 .border-bottom {
     border-bottom: 1px solid #444444 !important;
@@ -31,3 +40,32 @@ body {
 .h2, h1, p {
     color: #000000;
 }
+
+.img-fluid:hover{
+    transform: scale(1.1);
+}
+
+/* Admin Profile */
+.border-bottom h1{
+    font-family: "Great Vibes", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 45px;
+    background: -webkit-linear-gradient(#FF9472, #F2709C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0px;
+}
+
+/* Modal Title */
+.modal-title{
+    font-family: "Great Vibes", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 40px;
+    background: -webkit-linear-gradient(#FF9472, #F2709C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0px;
+}
+

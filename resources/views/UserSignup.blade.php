@@ -1,29 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include("layout/AdminHead")
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Login</title>
 </head>
-<body>
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <form action="/signup" method="POST">
-                @csrf
-                    <h2>Sign Up</h2>
-                    <hr>
-                    <label for="">FullName</label>
-                    <input type="text" name="FullName" class="form-control">
-                    <label for="">PhoneNumber</label>
-                    <input type="text" name="PhoneNumber" class="form-control">
-                    <label for="">Address</label>
-                    <input type="text" name="Address" class="form-control">
-                    <label for="">Email</label>
-                    <input type="text" name="Email" class="form-control">
-                    <label for="">Password</label>
-                    <input type="text" name="Password" class="form-control">
-                    <hr>
-                    <input type="submit" class="btn btn-dark" value="Sign Up">
-                </form>
+<body class="d-flex justify-content-center align-items-center" >
+    <div class="container mt-5 pt-5">
+        <div class="row g-0">
+            <div class="col-md-6 sign-up">
+                <div class="card shadow" style="background-color: #F7F4EF;">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <form action="/login" method="POST" class="w-75 m-0">
+                            @csrf
+                            <div class="d-flex justify-content-center">
+                                <img src="../img/logo-login.png" alt="" class="w-50 h-50">
+                                <h4 class="text-center d-flex align-items-center justify-content-center px-2">Welcome!</h4>
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="text" class="form-control w-100 shadow" name="Email" placeholder="Email">
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="password" class="form-control w-100 shadow" name="Password" placeholder="Password">
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-3">
+                                <input type="submit" value="LOGIN" class="form-control w-50 btn btn-outline-warning text-dark">
+                            </div>
+                                <p class="text-center mt-2" style="font-size: x-small;">Forgot Password?<a href="#">Click Here</a></p>
+                                <hr>
+                        </form> 
+                        <a href="/signup"><button style="background-color: #F2709C; width: 200px; height: 35px; text-decoration: none; border: none;" class="text-white">Register</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 sign-up">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form action="/signup" method="POST">
+                        @csrf
+                            <h2 class="p-2">Sign Up</h2>
+                            <hr>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="text" class="form-control w-100 shadow" style="height: 50px;" name="FullName" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="text" class="form-control w-100 shadow" style="height: 50px;" name="PhoneNumber" placeholder="Phone Number" required>
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="text" class="form-control w-100 shadow" style="height: 50px;" name="Address" placeholder="Address" required>
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="text" class="form-control w-100 shadow" style="height: 50px;" name="Email" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="text" class="form-control w-100 shadow" style="height: 50px;" name="Password" placeholder="Password" required>
+                            </div>
+                            <input type="submit" class="btn btn-outline-warning text-dark w-50 mt-3" value="Sign Up">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
