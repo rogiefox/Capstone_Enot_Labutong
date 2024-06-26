@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\UserTable;
 use App\Models\ProductTable;
 use App\Models\OrderTable;
+use App\Models\UserContact;
+
 
 use Illuminate\Http\Request;
 use Session;
@@ -129,7 +131,8 @@ class OrderController extends Controller
         $userCount = UserTable::count(); // Get the count of all users
         $productCount = ProductTable::count(); // Get the count of all users
         $orderCount = OrderTable::count(); // Get the count of all users
+        $contactCount = UserContact::count(); 
 
-        return view('/welcome', compact('userCount','productCount','orderCount')); // Pass the count to the view
+        return view('/welcome', compact('userCount','productCount','orderCount', 'contactCount')); // Pass the count to the view
     }
 }

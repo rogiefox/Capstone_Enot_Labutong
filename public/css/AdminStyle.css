@@ -69,3 +69,22 @@ body {
     padding: 0px;
 }
 
+a .icon:hover{
+    color: #F2709C;
+    transform: scale(1.1);
+}
+
+.admin-title{
+    font-family: "Great Vibes", cursive;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 40px;
+    background: -webkit-linear-gradient(#FF9472, #F2709C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0px;
+}
+
+a .icon{
+    color: #000000;   
+}

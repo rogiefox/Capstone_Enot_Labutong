@@ -3,25 +3,22 @@
         <div class="row text-center text-md-left">
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 text-start">
                 <h5 class="text-uppercase mb-4 font-weight-bold text-dark" style="color: #000000;">
-                    Flowers
+                    Type Flowers
                 </h5>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Peonies</a>
+                    <a href="/Flower/UserPeonies" class="text-dark" style="text-decoration: none;">Peonies</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Carnation Bouquet</a>
+                    <a href="/Flower/UserCarnation" class="text-dark" style="text-decoration: none;">Carnation Bouquet</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Gerberas Flowers</a>
+                    <a href="/Flower/UserGerberas" class="text-dark" style="text-decoration: none;">Gerberas Flowers</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Lilies Bouquet</a>
+                    <a href="/Flower/UserLilies" class="text-dark" style="text-decoration: none;">Lilies Bouquet</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Rose Bouquet</a>
-                </p>
-                <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Tropical</a>
+                    <a href="/Flower/UserRose" class="text-dark" style="text-decoration: none;">Rose Bouquet</a>
                 </p>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 text-start">
@@ -29,22 +26,22 @@
                     Type Events
                 </h5>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Wedding Anniversary</a>
+                    <a href="/Ocassion/UserWedding" class="text-dark" style="text-decoration: none;">Wedding Anniversary</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Valentine's Day</a>
+                    <a href="/Ocassion/UserValentine" class="text-dark" style="text-decoration: none;">Valentine's Day</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Happy Birthday Flower</a>
+                    <a href="/Ocassion/UserBirthday" class="text-dark" style="text-decoration: none;">Happy Birthday Flower</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Mother's Day</a>
+                    <a href="/Ocassion/UserMothers" class="text-dark" style="text-decoration: none;">Mother's Day</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Father's Day</a>
+                    <a href="/Ocassion/UserFathers" class="text-dark" style="text-decoration: none;">Father's Day</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Get Well & New Baby</a>
+                    <a href="/Ocassion/UserBaby" class="text-dark" style="text-decoration: none;">Get Well & New Baby</a>
                 </p>
             </div>
             <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 text-start border-start border-end border-3">
@@ -71,13 +68,13 @@
                     Links
                 </h5>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Home</a>
+                    <a href="/" class="text-dark" style="text-decoration: none;">Home</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Flowers</a>
+                    <a href="/Flower/UserRose" class="text-dark" style="text-decoration: none;">Flowers</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Occasions</a>
+                    <a href="/Ocassion/UserWedding" class="text-dark" style="text-decoration: none;">Occasions</a>
                 </p>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 text-start">

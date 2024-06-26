@@ -13,7 +13,7 @@
           {{-- User Form --}}
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Users</h1>
+                    <h1 class="h2 p-2">Users</h1>
                 </div>
                 <div class="container">
                     <div class="card">
@@ -69,7 +69,7 @@
                                         @csrf
                                         @method('PUT')
                                             <td>    
-                                                <img src="/image/{{$ut->UserImage}}" class="img-fluid">
+                                                <img src="/image/{{$ut->UserImage}}" class="img-fluid w-50 h-50 object-fit-cover mx-auto d-block">
                                             </td>
                                             <td>
                                                 <input type="text" name="FullName" value="{{$ut->FullName}}" class="form-control">
@@ -122,7 +122,7 @@
                                                     <div class="card shadow">
                                                         <div class="card-body">
                                                             <div class="d-flex justify-content-center align-items-center">
-                                                                <img src="/image/{{$ut->UserImage}}" class="img-fluid">
+                                                                <img src="/image/{{$ut->UserImage}}" class="img-fluid h-25 w-25 object-fit">
                                                                 <h4 class="ms-3 fw-bold">{{$ut->FullName}}</h4>
                                                             </div>
                                                             <hr>

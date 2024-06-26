@@ -20,7 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Blossom Bliss</title>
+    <link rel="icon" type="image/x-icon" href="../img/icon.png">
+    <title>Check-Out</title>
 </head>
 <body>
     {{-- Navigation Bar --}}
@@ -29,44 +30,41 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-2 ms-5 d-flex justify-cotent-center align-items-center">
-                <div class="w-100 header-check">
+                <div class="w-100 header-check border-2">
                     <h3>Shipping Information</h3>
                     <div class="d-flex flex-column mb-2">
                         <label>Full Name:</label>
-                        <input type="text" class="form-control shadow" value="{{Session::get('FullName')}}" style="height: 50px;">
+                        <input type="text" class="form-control fw-bold shadow" value="{{Session::get('FullName')}}" style="height: 50px;">
                         <label>Email Address:</label>
-                        <input type="text" class="form-control shadow" value="{{Session::get('Email')}}" style="height: 50px;">
+                        <input type="text" class="form-control fw-bold shadow" value="{{Session::get('Email')}}" style="height: 50px;">
                         <label>Full Address:</label>
-                        <input type="text" class="form-control shadow" value="{{Session::get('Address')}}"  style="height: 50px;">
+                        <input type="text" class="form-control fw-bold shadow" value="{{Session::get('Address')}}"  style="height: 50px;">
                         <label>Phone Number:</label>
-                        <input type="text" class="form-control shadow" value="{{Session::get('PhoneNumber')}}" style="height: 50px;">
+                        <input type="text" class="form-control fw-bold shadow" value="{{Session::get('PhoneNumber')}}" style="height: 50px;">
                         <label>Payment Method:</label>
-                        <select name="PaymentMethod" class="form-control fw-bold">
+                        <select name="PaymentMethod" class="form-control fw-bold shadow" style="height: 50px;">
                             <option value="CashOnDelivery">CashOnDelivery(Only Availabel For Now)</option>
-                        </select>
-                        <label>Total Amount:</label>
-                        <h5>Total Price: &#8369;<span id="order-total-price"></span></h5>  
+                        </select>  
                     </div>
                     <div>
-                    <form action="">
-                        <button class="btn btn-outline-warning text-dark" onclick="submitOrder()">Submit Order</button>
-                    </form>
+                        <h5 class="text-start mt-4">Total Price: &#8369;<span id="order-total-price"></span></h5>
+                        <form action="" class="d-flex justify-content-center mt-5">
+                            <button class="btn btn-outline-warning text-dark w-50" onclick="submitOrder()">Submit Order</button>
+                        </form>
                     </div>
                 </div>
-                <div class="w-100 ms-3 mt-5">
+                <div class="w-100 ms-5 mt-5">
                     <h2>Order Summary</h2>
-                    <hr>
                     <div id="carouselExample" class="carousel slide">
-                        <div class="carousel-inner" id="carousel-inner">
+                        <div class="carousel-inner w-75" id="carousel-inner">
                             <!-- Carousel items will be inserted here dynamically -->
                             
                         </div>
-                        <hr> 
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style="margin-right: 250px;">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>

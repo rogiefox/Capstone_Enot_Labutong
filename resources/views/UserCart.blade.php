@@ -20,33 +20,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Blossom Bliss</title>
+    <link rel="icon" type="image/x-icon" href="../img/icon.png">
+    <title>Cart</title>
 </head>
 <body>
     {{-- Navigation Bar --}}
     @include('layout/UserProdNav')
     {{-- End of Navigation Bar --}}
     <div class="container mt-5">
-        <h1>Your Shopping Cart</h1>
+        <h1>My Cart</h1>
 
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Message</th>
-                    <th>Price</th>
-                    <th>Remove</th>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Message</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody id="cart-body">
                 <!-- Cart items will be inserted here -->
             </tbody>
         </table>
-        <a href="/UserCheckout/{{Session::get('UserID')}}" class="btn btn-outline-warning">Check Out</a>
-        <h2 class="mt-4">Total: <span id="grand-total"></span></h2>
+        <a href="/UserCheckout/{{Session::get('UserID')}}" class="btn btn-outline-warning text-dark w-25">Check Out</a>
+        <h2 class="mt-4 text-end">Total: &#8369;<span id="grand-total"></span></h2>
     </div>
 
     <script>
@@ -69,13 +70,13 @@
                     var row = document.createElement('tr');
                     row.innerHTML = `
                     
-                        <td><img src="../image/${product.image}" alt="${product.name}" class="img-fluid" width="50"></td>
+                        <td><img src="../image/${product.image}" alt="${product.name}" class="img-fluid object-fit mx-auto d-block" width="100" height="100" ></td>
                         <td>${product.name}</td>
                         <td>&#8369;${product.price}</td>
                         <td>${product.quantity || 1}</td>
                         <td>${product.message}</td>
                         <td>&#8369;${productTotal.toFixed(2)}</td>
-                        <td><button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Remove</button></td>
+                        <td><button class="btn btn-outline-danger mx-auto d-block btn-sm" onclick="removeFromCart(${index})">Remove</button></td>
                     `;
                     cartBody.appendChild(row);
                 });
