@@ -164,6 +164,17 @@ class UserController extends Controller
     public function signup_getter(request $request){
         $UserTable = new UserTable;
 
+        $file = $request->file('Image');
+        // gathering data
+
+        $filenameextension = time() . "." . $request->Image->extension();
+
+        $filename = $request->getSchemeAndHttpHost() . "/image/" . $filenameextension;
+        // generation of image name
+        $request->Image->move(public_path('/image/'), $filename);
+        // pushing the selected image to ur slected folder
+        $UserTable->UserImage = $filenameextension;
+
         $UserTable->FullName = $request->input('FullName');
         $UserTable->PhoneNumber = $request->input('PhoneNumber');
         $UserTable->Address = $request->input('Address');

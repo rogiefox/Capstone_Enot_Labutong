@@ -52,10 +52,14 @@
             <div class="col-md-6 sign-up">
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="/signup" method="POST">
+                        <form action="/signup" method="POST" enctype="multipart/form-data">
                         @csrf
                             <h2 class="p-2">Sign Up</h2>
                             <hr>
+                           
+                            <div class="form-group d-flex align-items-center justify-content-center pt-2">
+                                <input type="file" name='Image' class="form-control fw-bold" required>
+                            </div>
                             <div class="form-group d-flex align-items-center justify-content-center pt-2">
                                 <input type="text" class="form-control w-100 shadow" style="height: 50px;" name="FullName" placeholder="Full Name" required>
                             </div>

@@ -83,10 +83,53 @@ class OrderController extends Controller
         ->where('UserID','=', $id)
         ->join('user_tables','OrderUserID','=','user_tables.UserID')
         ->join('product_tables','OrderProductID','=','product_tables.ProductID')
-        ->get()
-        ->first();
+        ->get();
 
         return view('userorder', compact('OrderTable'));
     }
      // user_order_detail (USER ORDER PAGE)
+
+    //  user cart
+     public function show_cart(){
+        return view('/UserCart');
+    }
+    //  user cart
+
+    // user check out
+    public function show_checkout(){
+        $OrderTable = OrderTable::query()
+        ->select('*')
+        ->get();
+        return view('/UserCheckout');
+    }
+
+    // submit order
+    public function submitOrder(Request $request)
+    {
+        $userId = $request->input('userId');
+        $orderData = $request->input('order');
+
+        foreach ($orderData as $item) {
+            $OrderTable = new OrderTable;
+            $OrderTable->OrderUserID = $userId;
+            $OrderTable->OrderProductID = $item['id'];
+            $OrderTable->Notes = $item['message'];
+            $OrderTable->TotalAmount = $item['price'];
+            $OrderTable->save();
+        }
+        return response()->json(['success' => true, 'message' => 'Order submitted successfully']);
+    }
+    // submit order
+
+
+
+    // UserCount
+    public function show_count()
+    {
+        $userCount = UserTable::count(); // Get the count of all users
+        $productCount = ProductTable::count(); // Get the count of all users
+        $orderCount = OrderTable::count(); // Get the count of all users
+
+        return view('/welcome', compact('userCount','productCount','orderCount')); // Pass the count to the view
+    }
 }

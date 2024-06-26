@@ -9,7 +9,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark text-center active" aria-current="page" href="/welcome">
-                    Welcome Admin
+                    Dashboard
                 </a>
             </li>
             <li class="nav-item">

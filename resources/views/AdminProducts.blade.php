@@ -64,9 +64,9 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h2>Product List</h2>
-                                <form class="d-flex mb-2" role="search">
-                                    <input class="form-control text-start w-100 me-2" type="search" aria-label="Search">
-                                    <button class="btn btn-outline-warning text-dark" type="submit">Search</button>
+                                <form class="d-flex mb-2" role="search" onsubmit="return false;">
+                                    <input id="search-input" class="form-control text-start w-100 me-2" type="search" aria-label="Search" placeholder="Search">
+                                    <button class="btn btn-outline-warning text-dark" type="button" onclick="searchTable()">Search</button>
                                 </form>
                             </div>
                             
@@ -87,7 +87,7 @@
                                 </thead>
                                 @foreach ($ProductTable as $pt)
                                     <tbody>
-                                        <tr>
+                                        <tr class="product-row">
                                         <form action="/products/{{$pt->ProductID}}" method="POST">
                                         @csrf
                                         @method('PUT')
@@ -190,6 +190,7 @@
         </div>
       </div>
 </body>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/AdminMain.js"></script>
+    <script src="js/main.js"></script>
 </html>

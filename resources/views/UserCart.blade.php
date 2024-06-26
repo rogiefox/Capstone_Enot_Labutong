@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,92 +26,79 @@
     {{-- Navigation Bar --}}
     @include('layout/UserProdNav')
     {{-- End of Navigation Bar --}}
-    <div class="container shadow p-3 mt-5 mb-5">
-        <div class="row">
-            <div class="header-cart">
-                <h3>My Cart</h3>
-            </div>
-            <div class="col-md-12">
-                <table class="table table-hover table-bordered">
-                    <tr class="text-center">
-                        <th>Product Image</th>
-                        <th>Product Name</th>
-                        <th>Product Price</th>
-                        <th>Card Message</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td class="d-flex justify-content-center align-items-center"><img src="flower-img/Azure Blossoms.jpg" alt="" style="height: 100px; width: 100px;"></td>
-                        <td class="text-center"><h5>Azure Blossoms</h5></td>
-                        <td class="text-center"><h5>&#8369; 3,500</h5></td>
-                        <td class="text-center"><h5>Sample Message</h5></td>
-                        <td class="text-center"><input type="submit" name="" id="" value="Remove" class="btn btn-outline-warning text-dark"></td>
-                    </tr>
-                </table>  
-            </div>
-            <div class="col-md-12">
-                <table class="table table-hover table-bordered">
-                    <tr class="text-center">
-                        <th>Product Image</th>
-                        <th>Product Name</th>
-                        <th>Product Price</th>
-                        <th>Card Message</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td class="d-flex justify-content-center align-items-center"><img src="flower-img/Azure Blossoms.jpg" alt="" style="height: 100px; width: 100px;"></td>
-                        <td class="text-center"><h5>Azure Blossoms</h5></td>
-                        <td class="text-center"><h5>&#8369; 3,500</h5></td>
-                        <td class="text-center"><h5>Sample Message</h5></td>
-                        <td class="text-center"><input type="submit" name="" id="" value="Remove" class="btn btn-outline-warning text-dark"></td>
-                    </tr>
-                </table>  
-            </div>
-            <div class="col-md-12">
-                <table class="table table-hover table-bordered">
-                    <tr class="text-center">
-                        <th>Product Image</th>
-                        <th>Product Name</th>
-                        <th>Product Price</th>
-                        <th>Card Message</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td class="d-flex justify-content-center align-items-center"><img src="flower-img/Azure Blossoms.jpg" alt="" style="height: 100px; width: 100px;"></td>
-                        <td class="text-center"><h5>Azure Blossoms</h5></td>
-                        <td class="text-center"><h5>&#8369; 3,500</h5></td>
-                        <td class="text-center"><h5>Sample Message</h5></td>
-                        <td class="text-center"><input type="submit" name="" id="" value="Remove" class="btn btn-outline-warning text-dark"></td>
-                    </tr>
-                </table>  
-            </div>
-            <div class="col-md-12">
-                <table class="table table-hover table-bordered">
-                    <tr class="text-center">
-                        <th>Product Image</th>
-                        <th>Product Name</th>
-                        <th>Product Price</th>
-                        <th>Card Message</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td class="d-flex justify-content-center align-items-center"><img src="flower-img/Azure Blossoms.jpg" alt="" style="height: 100px; width: 100px;"></td>
-                        <td class="text-center"><h5>Azure Blossoms</h5></td>
-                        <td class="text-center"><h5>&#8369; 3,500</h5></td>
-                        <td class="text-center"><h5>Sample Message</h5></td>
-                        <td class="text-center"><input type="submit" name="" id="" value="Remove" class="btn btn-outline-warning text-dark"></td>
-                    </tr>
-                </table>
-                <h5 class="text-end">Total Amount: &#8369; 3,500</h5>  
-            </div>
-            <div class="col-md-12 d-flex justify-content-center align-items-center">
-                <a href="/UserCheckout" class="w-100 d-flex justify-content-center align-items-center" style="text-decoration: none;"><input type="submit" name="" id="" value="Check Out" class="btn btn-outline-warning text-dark w-50"></a>
-            </div>
-        </div>
+    <div class="container mt-5">
+        <h1>Your Shopping Cart</h1>
+
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Message</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+                <!-- Cart items will be inserted here -->
+            </tbody>
+        </table>
+        <a href="/UserCheckout/{{Session::get('UserID')}}" class="btn btn-outline-warning">Check Out</a>
+        <h2 class="mt-4">Total: <span id="grand-total"></span></h2>
     </div>
-    {{-- Footer --}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch cart items from local storage
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var cartBody = document.getElementById('cart-body');
+            var grandTotal = 0;
+            var userId = '{{ session()->get('UserID') }}'; // Retrieve user ID from session
+    
+            // Function to update the cart display
+            function updateCartDisplay() {
+                cartBody.innerHTML = ''; // Clear current cart display
+                grandTotal = 0; // Reset grand total
+    
+                cart.forEach(function(product, index) {
+                    var productTotal = product.price * (product.quantity || 1); // Assuming quantity is 1 if not specified
+                    grandTotal += productTotal;
+    
+                    var row = document.createElement('tr');
+                    row.innerHTML = `
+                    
+                        <td><img src="../image/${product.image}" alt="${product.name}" class="img-fluid" width="50"></td>
+                        <td>${product.name}</td>
+                        <td>&#8369;${product.price}</td>
+                        <td>${product.quantity || 1}</td>
+                        <td>${product.message}</td>
+                        <td>&#8369;${productTotal.toFixed(2)}</td>
+                        <td><button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Remove</button></td>
+                    `;
+                    cartBody.appendChild(row);
+                });
+    
+                // Display the grand total
+                document.getElementById('grand-total').textContent = ` ${grandTotal.toFixed(2)}`;
+            }
+    
+            // Function to remove item from cart
+            window.removeFromCart = function(index) {
+                cart.splice(index, 1); // Remove the item at the specified index
+                localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+                updateCartDisplay(); // Update the cart display
+            }
+    
+            // Initial display update
+            updateCartDisplay();
+        });
+    </script>
+  
     @include('layout/UserFooter')
     {{-- End of Footer --}}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 </html>    

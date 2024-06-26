@@ -16,7 +16,33 @@
                     <h1 class="h2">Dashboard</h1>
                 </div>
                 <div class="container">
-                    <p>Welcome to your dashboard!</p>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <h1 >User</h1>
+                            <a href="/users"> 
+                            <h2>Total Users: {{ $userCount }}</h2>
+                             </a>
+                        </div>    
+                        
+                    
+                        <div class="col-md-4">
+                            <h1 >Product</h1>
+                            <a href="/products"> 
+                            <h2>Total Product: {{ $productCount }}</h2>
+                             </a>
+                        </div>  
+                       
+                        
+
+                        <div class="col-md-4">
+                            <h1 >Order</h1>
+                            <a href="/orders"> 
+                            <h2>Total Orders: {{ $orderCount }}</h2>
+                             </a>
+                        </div>  
+                        
+                    </div>
                 </div>
             </main>
           {{-- page content --}}

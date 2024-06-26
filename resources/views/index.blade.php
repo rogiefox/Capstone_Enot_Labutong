@@ -69,21 +69,91 @@
     <div class="container header-text mt-5">
         <h1 class="text-center">Featured Products</h1>
         <div class="row g-4">
-           <div class="col-md-4">
-                <a href="/UserSingle" style="text-decoration: none;">
+            @foreach ($FeaturedProduct as $fp)
+                <div class="col-md-4">
                     <div class="card border-0 rounded shadow">
-                        <img src="flower-img/Azure Blossoms.jpg" class="card-img-top" alt="...">
+                        <img src="image/{{$fp->ProductImage}}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="text-center">Azure Blossom</h5>
-                            <h5 class="text-center">&#8369; 3,500</h5>
+                            <h5 class="text-center">{{$fp->ProductName}} </h5>
+                            <h5 class="text-center">&#8369; {{$fp->ProductPrice}} </h5>
                         </div>
                         <div class="layer">
-                            <h6>A dozen of imported roses bouquet.</h6>
-                            <input type="submit" value="ADD TO CART" class="btn btn-outline-warning">
+                            <h6>{{$fp->ProductDescription}} </h6>
+                            <br>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$fp->ProductID}}">
+                                View detail
+                            </button>
+                        </div>
+                    </div> 
+                </div>   
+                <!-- Modal for product detail -->
+                <div class="modal fade" id="exampleModal{{$fp->ProductID}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title" id="exampleModalLabel">Product Detail</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="card-body shadow">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="image/{{$fp->ProductImage}}" alt="" class="w-100 h-100">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h3>{{$fp->ProductName}}</h3>
+                                                <h5>&#8369; {{$fp->ProductPrice}}</h5>
+                                                <hr>
+                                                <p>Message On the Card</p>
+                                                <textarea id="message-{{$fp->ProductID}}" cols="30" rows="10" placeholder="Message" class="form-control"></textarea>
+                                                 <input type="button" id="add-to-cart-{{$fp->ProductID}}" class="btn btn-outline-warning w-50 mt-3 rounded-pill text-dark" value="ADD TO CART">
+                                                <h5 class="mt-3 single-care">Description</h5>
+                                                <p>
+                                                    {{$fp->ProductDescription}}
+                                                </p>
+                                                <h5 class="mt-3 single-care">Care Instruction</h5>
+                                                <p>
+                                                    {{$fp->ProductCare}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer mx-auto border-0">
+                                <button type="button" class="btn btn-outline-dark text-dark" data-bs-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
-                </a>    
-           </div>
+                </div>
+                <script>
+                    document.getElementById('add-to-cart-{{$fp->ProductID}}').addEventListener('click', function() {
+                        var product = {
+                            id: "{{$fp->ProductID}}",
+                            name: "{{$fp->ProductName}}",
+                            price: "{{$fp->ProductPrice}}",
+                            image: "{{$fp->ProductImage}}",
+                            description: "{{$fp->ProductDescription}}",
+                            care: "{{$fp->ProductCare}}",
+                            message: document.getElementById('message-{{$fp->ProductID}}').value
+                           
+                        };
+                
+                        // Get the current cart items from local storage
+                        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                        // Add the new product to the cart
+                        cart.push(product);
+                
+                        // Save the updated cart to local storage
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                
+                        // Optionally, give some feedback to the user
+                        alert('Product added to cart!');
+                    });
+                </script>
+           @endforeach
         </div>
     </div>
     {{-- End of 2nd Content of the Body Featured Products --}}
@@ -107,19 +177,92 @@
     <div class="container header-text mt-4">
         <h1 class="text-center">Best Seller Products</h1>
         <div class="row g-4">
+            @foreach ($BestSellerProduct as $bsp)
            <div class="col-md-4">
                 <div class="card border-0 rounded shadow">
-                    <img src="flower-img/Best-seller/Benoite.jpg" class="card-img-top" alt="...">
+                    <img src="image/{{$bsp->ProductImage}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="text-center">Benoite</h5>
-                        <h5 class="text-center">&#8369; 3,500</h5>
+                        <h5 class="text-center">{{$bsp->ProductName}}</h5>
+                        <h5 class="text-center">&#8369; {{$bsp->ProductPrice}}</h5>
                     </div>
                     <div class="layer">
-                        <h6>A dozen of imported roses bouquet.</h6>
-                        <input type="submit" value="ADD TO CART" class="btn btn-outline-warning">
+                        <h6>{{$bsp->ProductDescription}}</h6>
+                        <br>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$bsp->ProductID}}">
+                            View detail
+                        </button>
                     </div>
                 </div>
            </div>
+                <!-- Modal for product detail -->
+                <div class="modal fade" id="exampleModal{{$bsp->ProductID}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title" id="exampleModalLabel">Product Detail</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="card-body shadow">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="image/{{$bsp->ProductImage}}" alt="" class="w-100 h-100">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>{{$bsp->ProductName}}</h3>
+                                            <h5>&#8369;{{$bsp->ProductPrice}}</h5>
+                                            <hr>
+                                            <p>Message On the Card</p>
+                                            <textarea id="message-{{$bsp->ProductID}}" cols="30" rows="10" placeholder="Message" class="form-control"></textarea>
+                                                <input type="button" id="add-to-cart-{{$bsp->ProductID}}" class="btn btn-outline-warning w-50 mt-3 rounded-pill text-dark" value="ADD TO CART">
+                                            <a href=""></a>
+                                            <h5 class="mt-3 single-care">Description</h5>
+                                            <p>
+                                                {{$bsp->ProductDescription}}
+                                            </p>
+                                            <h5 class="mt-3 single-care">Care Instruction</h5>
+                                            <p>
+                                                {{$bsp->ProductCare}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer mx-auto border-0">
+                            <button type="button" class="btn btn-outline-dark text-dark" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.getElementById('add-to-cart-{{$bsp->ProductID}}').addEventListener('click', function() {
+                    var product = {
+                        id: "{{$bsp->ProductID}}",
+                        name: "{{$bsp->ProductName}}",
+                        price: "{{$bsp->ProductPrice}}",
+                        image: "{{$bsp->ProductImage}}",
+                        description: "{{$bsp->ProductDescription}}",
+                        care: "{{$bsp->ProductCare}}",
+                        message: document.getElementById('message-{{$bsp->ProductID}}').value
+                       
+                    };
+            
+                    // Get the current cart items from local storage
+                    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+                    // Add the new product to the cart
+                    cart.push(product);
+            
+                    // Save the updated cart to local storage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+            
+                    // Optionally, give some feedback to the user
+                    alert('Product added to cart!');
+                });
+            </script>
+           @endforeach
         </div>
     </div>
     {{-- End of 4th Content of the Body Best Seller Products --}}

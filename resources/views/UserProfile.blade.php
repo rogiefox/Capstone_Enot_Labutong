@@ -25,7 +25,6 @@
                             <h5>PhoneNumber: {{Session::get('PhoneNumber')}}</h5>
                             <h5>Address: {{Session::get('Address')}}</h5>
                             <h5>Email: {{Session::get('Email')}}</h5>  
-                            <h5>UserLevel: {{Session::get('UserLevel')}}</h5>  
                         </div>
                     </div>
                 </div>

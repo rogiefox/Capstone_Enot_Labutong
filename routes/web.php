@@ -7,11 +7,13 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContactController;
 
+
+
 // Admin Index Page
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::get('/welcome', [DashboardController::class, 'show_count']);
 // Admin Index Page
+
+
 
 // *******************FRONTEND (SIR ROGIE)*****************
 
@@ -21,49 +23,63 @@ Route::get('/', function () {
 });
 // UserIndex Page
 
-Route::get('/Ocassion/UserWedding', function () {
-    return view('Ocassion/UserWedding');
-});
+Route::get('/welcome', [OrderController::class, 'show_count']);
 
-Route::get('/Ocassion/UserValentine', function () {
-    return view('Ocassion/UserValentine');
-});
+// BY OCCASIONS CATEGORY
+// show featured product and best products
+Route::get('/', [ProductController::class,'show_indexproduct']);
+// show featured product and best products
 
-Route::get('/Ocassion/UserMothers', function () {
-    return view('Ocassion/UserMothers');
-});
+// show_weddinganniversay
+Route::get('/Ocassion/UserWedding', [ProductController::class,'show_weddinganniversary']);
+// show_weddinganniversay
 
-Route::get('/Ocassion/UserFathers', function () {
-    return view('Ocassion/UserFathers');
-});
 
-Route::get('/Ocassion/UserBirthday', function () {
-    return view('Ocassion/UserBirthday');
-});
+// show_weddinganniversay
 
-Route::get('/Ocassion/UserBaby', function () {
-    return view('Ocassion/UserBaby');
-});
+// show_valentinesday
+Route::get('/Ocassion/UserValentine',[ProductController::class,'show_valentinesday']);
+// show_valentinesday
 
-Route::get('/Flower/UserPeonies', function () {
-    return view('Flower/UserPeonies');
-});
+// show_happybirthday
+Route::get('/Ocassion/UserBirthday',[ProductController::class,'show_happybirthday'] );
+// show_happybirthday
 
-Route::get('/Flower/UserCarnation', function () {
-    return view('Flower/UserCarnation');
-});
+// show_mothersday
+Route::get('/Ocassion/UserMothers',[ProductController::class,'show_mothersday']);
+// show_mothersday
 
-Route::get('/Flower/UserGerberas', function () {
-    return view('Flower/UserGerberas');
-});
+// show_fathersday
+Route::get('/Ocassion/UserFathers',[ProductController::class,'show_fathersday'] );
+// show_fathersday
 
-Route::get('/Flower/UserLilies', function () {
-    return view('Flower/UserLilies');
-});
+// show_baby
+Route::get('/Ocassion/UserBaby',[ProductController::class,'show_baby'] );
+// show_baby
+// BY OCCASIONS CATEGORY
 
-Route::get('/Flower/UserRose', function () {
-    return view('Flower/UserRose');
-});
+// BY FLOWERS TYPE
+// show_peonies
+Route::get('/Flower/UserPeonies',[ProductController::class,'show_peonies'] );
+// show_peonies
+
+// show_carnation
+Route::get('/Flower/UserCarnation',[ProductController::class,'show_carnation']);
+// show_carnation
+
+// show_gerberas
+Route::get('/Flower/UserGerberas',[ProductController::class,'show_gerberas']);
+// show_gerberas
+
+// show_lilies
+Route::get('/Flower/UserLilies',[ProductController::class,'show_lilies']);
+// show_lilies
+
+// show_rose
+Route::get('/Flower/UserRose',[ProductController::class,'show_rose'] );
+// show_rose
+
+// BY FLOWERS TYPE
 
 Route::get('/UserContact', function () {
     return view('/UserContact');
@@ -247,3 +263,16 @@ Route::get('/admincontact',[ContactController::class, 'admin_contact']);
 // CONTACT US CREATE AND DISPLAY
 
 // *******************BACKEND (SPENCER)*********************
+
+
+
+// User Cart
+Route::get('/UserCart/{id}',[OrderController::class, 'show_cart']);
+// User Cart
+
+// User Checkout
+Route::get('/UserCheckout/{id}',[OrderController::class, 'show_checkout']);
+// User Checkout
+
+// submit order
+Route::post('/submit-order', [OrderController::class, 'submitOrder']);

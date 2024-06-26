@@ -45,13 +45,19 @@
               </li>
           </ul>
           <div class="me-5">
-            <button class="border-0 bg-transparent">    
+            {{-- <button class="border-0 bg-transparent">    
               <a href="/userprofile/{{Session::get('UserID')}}" class="text-white fw-bolder" style="font-size: 20PX;"><i class="fa-solid fa-user"></i></a>
             </button>
             <button class="border-0 bg-transparent">  
-              <a href="cartpage.php" class="text-white fw-bolder" style="font-size: 20PX;"><i class="fa-solid fa-cart-shopping"></i></a>
-            </button>
+              <a href="/UserCart/{{Session::get('UserID')}}" class="text-white fw-bolder" style="font-size: 20PX;"><i class="fa-solid fa-cart-shopping"></i></a>
+            </button> --}}
             @if (Session::get('UserID'))
+              <button class="border-0 bg-transparent">    
+                <a href="/userprofile/{{Session::get('UserID')}}" class="text-white fw-bolder" style="font-size: 20PX;"><i class="fa-solid fa-user"></i></a>
+              </button>
+              <button class="border-0 bg-transparent">  
+                <a href="/UserCart/{{Session::get('UserID')}}" class="text-white fw-bolder" style="font-size: 20PX;"><i class="fa-solid fa-cart-shopping"></i></a>
+              </button>
                 <a href="/userlogout" class="text-white" style="text-decoration: none;">Logout</a>
             @else
               <a href="/signup" class="text-white" style="text-decoration: none;">Sign Up</a>

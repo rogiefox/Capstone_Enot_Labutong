@@ -30,49 +30,50 @@
                                     <th>View</th>
                                 </tr>
                             </thead>
+                        @foreach ($OrderTable as $ot)
                             <tbody>
                                 <tr>
-                                    <td><img src="/image/{{$OrderTable->ProductImage}}" class="img-fluid"></td>
-                                    <td>{{$OrderTable->ProductName}}</td>
-                                    <td>{{$OrderTable->Notes}}</td>
-                                    <td>{{$OrderTable->Address}}</td>
-                                    <td>{{$OrderTable->TotalAmount}}</td>
-                                    <td>{{$OrderTable->OrderStatus}}</td>
-                                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$OrderTable->OrderID}}">
+                                    <td><img src="/image/{{$ot->ProductImage}}" class="img-fluid"></td>
+                                    <td>{{$ot->ProductName}}</td>
+                                    <td>{{$ot->Notes}}</td>
+                                    <td>{{$ot->Address}}</td>
+                                    <td>{{$ot->TotalAmount}}</td>
+                                    <td>{{$ot->OrderStatus}}</td>
+                                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$ot->OrderID}}">
                                         View
                                     </button>
                                     </td>
                                 </tr>
                             </tbody>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal{{$OrderTable->OrderID}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <!-- Modal -->
+                        <div class="modal fade" id="exampleModal{{$ot->OrderID}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">OrderDetail</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <img src="/image/{{$OrderTable->ProductImage}}" class="img-fluid">
-                                            <h4>ProductName: {{$OrderTable->ProductImage}}</h4>
-                                            <h4>Notes: {{$OrderTable->Notes}}</h4>
-                                            <h4>Shipping Address: {{$OrderTable->Address}}</h4>
-                                            <h4>Amount: {{$OrderTable->TotalAmount}}</h4>
-                                            <h4>OrderStatus: {{$OrderTable->OrderStatus}}</h4>
-                                       
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">OrderDetail</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <img src="/image/{{$ot->ProductImage}}" class="img-fluid">
+                                                <h4>ProductName: {{$ot->ProductImage}}</h4>
+                                                <h4>Notes: {{$ot->Notes}}</h4>
+                                                <h4>Shipping Address: {{$ot->Address}}</h4>
+                                                <h4>Amount: {{$ot->TotalAmount}}</h4>
+                                                <h4>OrderStatus: {{$ot->OrderStatus}}</h4>
+                                        
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
                                 </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
                             </div>
                         </div>
+                        @endforeach
                         </table>
                     </div>
                 </div>
